@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Variables</title>
+</head>
+
+<body>
+    <h2>CSS Variables and <span class="js">JS</span></h2>
+
+    <div class="control">
+        <label for="spacing">Push some things away: </label>
+        <input type="range" name="spacing" min="10" max="500" value="10" data-sizing="px">
+    </div>
+
+    <img src="https://amp.businessinsider.com/images/58f4e5ebf40daef5008b4bb4-750-500.jpg" alt="San Francisco">
+</body>
+
+<style>
+    :root {
+        --spacing: 10px;
+    }
+
+    body {
+        font-family: sans-serif;
+        background: darkcyan;
+        color: white;
+    }
+
+    .js {
+        padding-left: var(--spacing);
+    }
+
+    .control {
+        align-self: center;
+        padding: 50px 0px;
+    }
+
+    input {
+        margin-left: 20px;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    img {
+        width: 100%;
+        padding-top: var(--spacing);
+    }
+</style>
+
+<script>
+    function handleUpdate() {
+        const suffix = this.dataset.sizing;
+        document.documentElement.style.setProperty('--spacing', this.value + suffix);
+    }
+
+    const spacing = document.querySelector('.control input');
+    spacing.addEventListener('change', handleUpdate);
+    spacing.addEventListener('mousemove', handleUpdate);
+</script>
+
+
+</html>
