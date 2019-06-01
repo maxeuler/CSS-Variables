@@ -1,3 +1,3 @@
 # CSS-Variables
 
-## That's not even a real project 🤷
+That's not even a real project 🤷
